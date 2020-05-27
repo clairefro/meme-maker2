@@ -11,8 +11,8 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-download-svg": "^0.0.4",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "save-svg-as-png": "^1.4.17"
   },
   "scripts": {
     "start": "react-scripts start",
