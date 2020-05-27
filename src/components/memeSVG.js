@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+// import { Wrapper } from 'react-download-svg';
 
-const MemeSVG = ({ data, textTop, textBottom, fontSize }) => {
+const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom }) => {
   const aspectRatio = data.width/data.height;
   const [positionTop, setPositionTop] = useState({x: 100, y :200})
   const [positionBottom, setPositionBottom] = useState({x: 100, y :400})
-
 
   const trackTop = (e) => {
     setPositionTop({ x: e.offsetX -50, y: e.offsetY + 10 })
@@ -29,14 +29,21 @@ const MemeSVG = ({ data, textTop, textBottom, fontSize }) => {
   }
 
   return (
-    <svg
-    width={700}
-    height={700}
-    >
-      <image xlinkHref={data.url} width={700} height={700*aspectRatio} />
-      <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} style={{fontSize: `${fontSize}px`}} > {textTop} </text>
-      <text x={positionBottom.x} y={positionBottom.y} onMouseDown={e => handleMouseDown(e, 'bottom')} > {textBottom} </text>
-    </svg>
+    <>
+
+
+        <svg
+        width={700}
+        height={700}
+        >
+          <image xlinkHref={data.url} width={700} height={700*aspectRatio} />
+          <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} style={{fontSize: `${fontSizeTop}px`}} > {textTop} </text>
+          <text x={positionBottom.x} y={positionBottom.y} onMouseDown={e => handleMouseDown(e, 'bottom')} style={{fontSize: `${fontSizeBottom}px`}}> {textBottom} </text>
+        </svg>
+
+
+    </>
+
   )
 }
 

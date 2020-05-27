@@ -5,8 +5,14 @@ import MemeSVG from './memeSVG';
 const MemeEditor = ({ data }) => {
   const [textTop, setTextTop] = useState("")
   const [textBottom, setTextBottom] = useState("")
-  const [fontsize, setFontsize] = useState(48)
+  const [fontsizeTop, setFontsizeTop] = useState(48)
+  const [fontsizeBottom, setFontsizeBottom] = useState(48)
   const { title, url, width, height, id } = data;
+
+  const clearText = () => {
+    setTextTop("")
+    setTextBottom("")
+  }
 
   return (
     <div className="meme-editor">
@@ -14,16 +20,31 @@ const MemeEditor = ({ data }) => {
       <p>{title}</p>
       <div className="meme-editor-sections">
         <div className="text-edit">
-        <label htmlFor="top-text">Top text </label>
-         <input type="text" name="top-text" onChange={(e)=>(setTextTop(e.target.value))}/>
-        <label htmlFor="bottom-text">Bottom text </label>
-         <input type="text" name="top-text" onChange={(e)=>(setTextBottom(e.target.value))}/>
-        <label htmlFor="fontsize-slider">Font size </label>
-         <input type="range" min="8" max="90" value="48" class="slider" name="fontsize-slider" id="fontsize-slider" onChange={(e)=>(setFontsize(e.target.value))} />
-        </div>
-        <button >Download Meme</button>
+          <div className="text-top">
+            <label htmlFor="top-text">Top text </label>
+            <input type="text" name="top-text" onChange={(e)=>(setTextTop(e.target.value))}/>
+            <label htmlFor="fontsize-slider">Font size </label>
+            <input type="range" min="8" max="90" value="48" class="slider" name="fontsize-slider" id="fontsize-slider" onChange={(e)=>(setFontsizeTop(e.target.value))} />
+          </div>
+
+
+          <div className="text-bottom">
+            <label htmlFor="bottom-text">Bottom text </label>
+            <input type="text" name="top-text" onChange={(e)=>(setTextBottom(e.target.value))}/>
+            <label htmlFor="fontsize-slider-bottom">Font size </label>
+            <input type="range" min="8" max="90" value="48" class="slider" name="fontsize-slider-bottom" id="fontsize-slider-bottom" onChange={(e)=>(setFontsizeBottom(e.target.value))} />
+          </div>
+
+         </div>
+
+        <button onClick={clearText}>Clear text</button>
+        <button>Download Meme</button>
         <div className="meme-window">
-          <MemeSVG data={data} textTop={textTop} textBottom={textBottom} fontSize={fontsize}/>
+        { Object.keys(data).length === 0 ?
+          <p>{"<---"} Click a base meme to start</p>
+          :
+          <MemeSVG data={data} textTop={textTop} textBottom={textBottom} fontSizeTop={fontsizeTop} fontSizeBottom={fontsizeBottom} />
+        }
         </div>
       </div>
     </div>
