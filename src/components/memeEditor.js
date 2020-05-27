@@ -21,7 +21,7 @@ const MemeEditor = ({ data }) => {
       <div className="meme-editor-sections">
         <div className="text-edit">
           <div className="text-top">
-            <label htmlFor="top-text">Top text </label>
+            <label htmlFor="top-text">Text #1 </label>
             <input type="text" name="top-text" onChange={(e)=>(setTextTop(e.target.value))}/>
             <label htmlFor="fontsize-slider">Font size </label>
             <input type="range" min="8" max="90" value="48" class="slider" name="fontsize-slider" id="fontsize-slider" onChange={(e)=>(setFontsizeTop(e.target.value))} />
@@ -29,7 +29,7 @@ const MemeEditor = ({ data }) => {
 
 
           <div className="text-bottom">
-            <label htmlFor="bottom-text">Bottom text </label>
+            <label htmlFor="bottom-text">Text#2 </label>
             <input type="text" name="top-text" onChange={(e)=>(setTextBottom(e.target.value))}/>
             <label htmlFor="fontsize-slider-bottom">Font size </label>
             <input type="range" min="8" max="90" value="48" class="slider" name="fontsize-slider-bottom" id="fontsize-slider-bottom" onChange={(e)=>(setFontsizeBottom(e.target.value))} />
@@ -37,8 +37,7 @@ const MemeEditor = ({ data }) => {
 
          </div>
 
-        <button onClick={clearText}>Clear text</button>
-        <button>Download Meme</button>
+        <button onClick={clearText} style={{width: "100px"}}>Clear text</button>
         <div className="meme-window">
         { Object.keys(data).length === 0 ?
           <p>{"<---"} Click a base meme to start</p>

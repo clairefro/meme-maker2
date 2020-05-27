@@ -43,7 +43,7 @@ const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom }) => 
 
   return (
     <>
-    <button onClick={()=>saveSvgAsPng(refSVG.current, "meme.png")}>Save</button>
+    <button onClick={()=>saveSvgAsPng(refSVG.current, "meme.png")}>Download Meme!</button>
       <svg
       ref={refSVG}
       width={700}
