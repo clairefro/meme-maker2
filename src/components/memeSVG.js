@@ -21,7 +21,8 @@ const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom, theme
 
   const textStyles = {
     textTransform: 'uppercase',
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    fontWeight: 'bold'
   }
 
   const handleMouseDown = (e, pos) => {
