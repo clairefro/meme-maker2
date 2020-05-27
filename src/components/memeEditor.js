@@ -51,7 +51,7 @@ const MemeEditor = ({ data }) => {
               <option value="black">black text</option>
             </select>
           </div>
-
+        <p>drag and drop text to desired position</p>
          </div>
 
         <button onClick={clearText} style={{width: "100px"}}>Clear text</button>
