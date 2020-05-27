@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const MemeSVG = ({ data, textTop, textBottom }) => {
+const MemeSVG = ({ data, textTop, textBottom, fontSize }) => {
   const aspectRatio = data.width/data.height;
   const [positionTop, setPositionTop] = useState({x: 100, y :200})
   const [positionBottom, setPositionBottom] = useState({x: 100, y :400})
@@ -34,7 +34,7 @@ const MemeSVG = ({ data, textTop, textBottom }) => {
     height={700}
     >
       <image xlinkHref={data.url} width={700} height={700*aspectRatio} />
-      <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} > {textTop} </text>
+      <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} style={{fontSize: `${fontSize}px`}} > {textTop} </text>
       <text x={positionBottom.x} y={positionBottom.y} onMouseDown={e => handleMouseDown(e, 'bottom')} > {textBottom} </text>
     </svg>
   )
