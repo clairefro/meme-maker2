@@ -3,7 +3,8 @@ import React, {useEffect, useState} from 'react';
 import MemeSVG from './memeSVG';
 
 const MemeEditor = ({ data }) => {
-  const [text, setText] = useState("")
+  const [textTop, setTextTop] = useState("")
+  const [textBottom, setTextBottom] = useState("")
   const { title, url, width, height, id } = data;
 
   return (
@@ -12,10 +13,14 @@ const MemeEditor = ({ data }) => {
       <p>{title}</p>
       <div className="meme-editor-sections">
         <div className="text-edit">
-         <input type="text" onChange={(e)=>(setText(e.target.value))}/>
+        <label htmlFor="top-text">Top text </label>
+         <input type="text" name="top-text" onChange={(e)=>(setTextTop(e.target.value))}/>
+        <label htmlFor="bottom-text">Bottom text </label>
+         <input type="text" name="top-text" onChange={(e)=>(setTextBottom(e.target.value))}/>
         </div>
+        <button >Download Meme</button>
         <div className="meme-window">
-          <MemeSVG data={data} text={text} />
+          <MemeSVG data={data} textTop={textTop} textBottom={textBottom}/>
         </div>
 
       </div>
