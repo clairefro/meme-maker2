@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {saveSvgAsPng} from 'save-svg-as-png';
 
-const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom }) => {
+const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom, theme }) => {
   const aspectRatio = data.width/data.height;
   const [positionTop, setPositionTop] = useState({x: 100, y :200})
   const [positionBottom, setPositionBottom] = useState({x: 100, y :400})
@@ -20,8 +20,6 @@ const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom }) => 
   }
 
   const textStyles = {
-    fill: '#fff',
-    stroke: '#000',
     textTransform: 'uppercase',
     fontFamily: 'sans-serif'
   }
@@ -43,15 +41,15 @@ const MemeSVG = ({ data, textTop, textBottom, fontSizeTop, fontSizeBottom }) => 
 
   return (
     <>
-    <button onClick={()=>saveSvgAsPng(refSVG.current, "meme.png")}>Download Meme!</button>
+    <button onClick={()=>saveSvgAsPng(refSVG.current, "meme.png", options)}>Download Meme!</button>
       <svg
       ref={refSVG}
       width={700}
       height={700}
       >
         <image xlinkHref={data.url} width={700} height={700*aspectRatio} />
-        <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} style={{fontSize: `${fontSizeTop}px`, ...textStyles }} > {textTop} </text>
-        <text x={positionBottom.x} y={positionBottom.y} onMouseDown={e => handleMouseDown(e, 'bottom')} style={{fontSize: `${fontSizeBottom}px`, ...textStyles}}> {textBottom} </text>
+        <text x={positionTop.x} y={positionTop.y} onMouseDown={e => handleMouseDown(e, 'top')} style={{fontSize: `${fontSizeTop}px`, ...textStyles, ...theme }} > {textTop} </text>
+        <text x={positionBottom.x} y={positionBottom.y} onMouseDown={e => handleMouseDown(e, 'bottom')} style={{fontSize: `${fontSizeBottom}px`, ...textStyles, ...theme}}> {textBottom} </text>
       </svg>
     </>
 
