@@ -32,7 +32,7 @@ const MemeEditor = ({ data }) => {
         <div className="text-edit">
           <div className="text-top">
             <label htmlFor="top-text">Text #1 </label>
-            <input type="text" name="top-text" onChange={(e)=>(setTextTop(e.target.value))}/>
+            <input type="text" name="top-text" value={textTop} onChange={(e)=>(setTextTop(e.target.value))}/>
             <label htmlFor="fontsize-slider">Font size </label>
             <input type="range" min="8" max="90" value="48" name="fontsize-slider" id="fontsize-slider" onChange={(e)=>(setFontsizeTop(e.target.value))} />
           </div>
@@ -40,7 +40,7 @@ const MemeEditor = ({ data }) => {
 
           <div className="text-bottom">
             <label htmlFor="bottom-text">Text#2 </label>
-            <input type="text" name="top-text" onChange={(e)=>(setTextBottom(e.target.value))}/>
+            <input type="text" name="top-text" value={textBottom}  onChange={(e)=>(setTextBottom(e.target.value))}/>
             <label htmlFor="fontsize-slider-bottom">Font size </label>
             <input type="range" min="8" max="90" value="48" name="fontsize-slider-bottom" id="fontsize-slider-bottom" onChange={(e)=>(setFontsizeBottom(e.target.value))} />
           </div>
