@@ -1,0 +1,34 @@
+@import './variables.scss';
+@import './components';
+
+.html, .body {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+.App {
+  h1, h2 {
+    text-align: center;
+  }
+  .panels {
+    display: flex;
+    .panel-right {
+      flex-basis: 50%;
+    }
+    .panel-left {
+      flex-basis: 50%;
+    }
+  }
+}
+
+#meme-editor-container {
+  display: none;
+  position: absolute;
+  // background-color: red;
+  width: 80vw;
+  height: 80vh;
+  z-index: 2;
+  top: 3rem;
+  left: 3rem;
+}

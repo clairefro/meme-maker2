@@ -1,0 +1,32 @@
+.meme-thumb-list {
+  display: grid;
+  height: calc(100vh - 200px;);
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  p {
+    text-align: center;
+  }
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.meme-thumb {
+  cursor: pointer;
+  width: 200px;
+  height:100px;
+  background-size: contain;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid black;
+  p {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFF;
+    background-color: $black;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}

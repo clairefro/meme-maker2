@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+// import logo from './logo.svg';
+import './style/App.scss';
+
+import MemeImageList from './components/memeImageList'
+import MemeEditor from './components/memeEditor'
 
 function App() {
+  const [selectedBase, setSelectedBase] =useState({})
+
+  const selectBase = (data) => {
+    setSelectedBase(data)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>BUILD-A-MEME</h1>
+      <div className="panels">
+        <div className="panel-left">
+          <h2>CHOOSE A BASE</h2>
+          <MemeImageList selectBase={selectBase}/>
+        </div>
+        <div className="panel-right">
+          <MemeEditor data={selectedBase}/>
+        </div>
+      </div>
     </div>
   );
 }
