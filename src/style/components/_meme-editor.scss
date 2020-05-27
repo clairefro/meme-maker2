@@ -2,6 +2,7 @@
   p {
     text-align: center;
   }
+  padding: 1rem;
 }
 
 .meme-editor-sections {
@@ -16,6 +17,13 @@
     svg {
       image {
         margin: 0 auto;
+      }
+      text {
+        fill: #fff;
+        stroke: black;
+        font-size: 48px;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
   }

@@ -6,11 +6,11 @@ const MemeSVG = ({ data, text }) => {
   return (
 
     <svg
-    width={500*aspectRatio}
-    height={500*aspectRatio}
+    width={700}
+    height={700}
     >
-      <image xlinkHref={data.url}  />
-      <text x={0} y={0}> tedfsdsadsxt </text>
+      <image xlinkHref={data.url} width={700} height={700*aspectRatio} />
+      <text x={100} y={200}> {text} </text>
     </svg>
   )
 }
